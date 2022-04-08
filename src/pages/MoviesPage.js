@@ -1,7 +1,7 @@
 import React from 'react';
 
-const MoviePage = () => {
-  return <h1>Movie Page</h1>;
+const MoviesPage = () => {
+  return <h1>Movies Page</h1>;
 };
 
-export default HomePage;
+export default MoviesPage;

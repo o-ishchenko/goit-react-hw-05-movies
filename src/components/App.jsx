@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
 import HomePage from '../pages/HomePage'
 import MoviesPage from '../pages/MoviesPage'
+import NotFoundPage from 'pages/NotFoundPage';
 
 export const App = () => {
   return (
@@ -13,8 +14,8 @@ export const App = () => {
           <Route path=":authorId" element={<AuthorSubView />} />
         </Route>
         
-        <Route path="books/:bookId" element={<BookDetailsView />} />
-        <Route path="*" element={<NotFoundView />} /> */}
+        <Route path="books/:bookId" element={<BookDetailsView />} /> */}
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
