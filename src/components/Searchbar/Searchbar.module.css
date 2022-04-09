@@ -1,0 +1,62 @@
+/*
+ * Стили компонента SearchForm
+ */
+.form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.button {
+  display: inline-block;
+  width: 48px;
+  height: 36px;
+  border: 0;
+  background-image: url('./magnifier-1_icon-icons.com_56924.svg');
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid gray;
+  background-color: #afb7e6;
+  opacity: 0.6;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.input {
+  display: inline-block;
+  width: 100%;
+  height: 32px;
+  font: inherit;
+  font-size: 17px;
+  border: 1px solid gray;
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.input::placeholder {
+  font: inherit;
+  font-size: 17px;
+}
