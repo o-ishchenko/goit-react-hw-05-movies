@@ -1,17 +1,17 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+// import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PageHeader from 'components/PageHeader';
 import Searchbar from 'components/Searchbar';
 
 function MoviesPage() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [data, setData] = useState([]);
+  // const [searchQuery, setSearchQuery] = useState('');
+  // const [data, setData] = useState([]);
 
   const handleFormSubmit = searchQuery => {
-    setSearchQuery(searchQuery);
-    setData([]);
+    // setSearchQuery(searchQuery);
+    // setData([]);
   };
 
   return (
