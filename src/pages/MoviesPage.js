@@ -1,9 +1,10 @@
 import React from 'react';
-// import { useState } from 'react';
+// import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PageHeader from 'components/PageHeader';
 import Searchbar from 'components/Searchbar';
+// import * as moviesSearch_API from '../services/api-movies';
 
 function MoviesPage() {
   // const [searchQuery, setSearchQuery] = useState('');

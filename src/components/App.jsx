@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
 import HomePage from '../pages/HomePage'
 import MoviesPage from '../pages/MoviesPage'
+import MovieDetailsPage from 'pages/MovieDetailsPage';
 import NotFoundPage from 'pages/NotFoundPage';
 
 export const App = () => {
@@ -10,6 +11,7 @@ export const App = () => {
       <Route path="/" element={<Layout />} >
         <Route index element={<HomePage />} />
         <Route path="movies" element={<MoviesPage />} />
+        <Route path="movies/:movieId" element={<MovieDetailsPage />} />
         {/* <Route path="authors" element={<AuthorsView />}>
           <Route path=":authorId" element={<AuthorSubView />} />
         </Route>
