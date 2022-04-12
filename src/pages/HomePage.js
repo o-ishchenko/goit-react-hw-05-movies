@@ -8,9 +8,9 @@ function HomePage() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    moviesSearch_API.fetchTrendingMovies().then(response => {
-      setMovies(response);
-      console.log(response);
+    moviesSearch_API.fetchTrendingMovies().then(r => {
+      setMovies(r);
+      console.log(r);
     });
   }, []);
 

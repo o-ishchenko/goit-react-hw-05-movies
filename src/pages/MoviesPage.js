@@ -1,24 +1,40 @@
-import React from 'react';
-// import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import PageHeader from 'components/PageHeader';
 import Searchbar from 'components/Searchbar';
-// import * as moviesSearch_API from '../services/api-movies';
+import * as moviesSearch_API from '../services/api-movies';
 
 function MoviesPage() {
-  // const [searchQuery, setSearchQuery] = useState('');
-  // const [data, setData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [data, setData] = useState([]);
 
   const handleFormSubmit = searchQuery => {
-    // setSearchQuery(searchQuery);
-    // setData([]);
+    setSearchQuery(searchQuery);
+    setData([]);
   };
+
+  useEffect(() => {
+    if (!searchQuery) {
+      return;
+    }
+    moviesSearch_API.fetchMoviesBySearchQuery(searchQuery).then(setData);
+  }, [searchQuery]);
 
   return (
     <>
-      <PageHeader>Movies Page</PageHeader>
       <Searchbar onSubmit={handleFormSubmit} />
+      {data && (
+        <ul>
+          {data.map(data => (
+            <li key={data.id}>
+              <Link to={`${data.id}`}>
+                {data.title ? data.title : data.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
       <ToastContainer autoClose={1500} position="top-center" />
     </>
   );

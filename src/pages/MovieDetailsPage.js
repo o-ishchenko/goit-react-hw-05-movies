@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import * as moviesSearch_API from '../services/api-movies';
+import NotFoundPage from '../pages/NotFoundPage';
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -14,7 +15,7 @@ function MovieDetailsPage() {
 
   return (
     <>
-      {movie && (
+      {movie ? (
         <>
           <img
             src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
@@ -25,17 +26,16 @@ function MovieDetailsPage() {
           <h3>Overview</h3>
           <p>{movie.overview}</p>
           <h3>Genres</h3>
-          {movie.genres && (
-            <ul>
-              {movie.genres.map(({ id, name }) => (
-                <li key={id}>{name}</li>
-              ))}
-            </ul>
-            // <p>{movie.genres.name.slice(0, 3).join(', ')}</p>
-          )}
-
+          {movie.genres &&
+            movie.genres.map(genre => <span key={genre.id}>{genre.name}</span>)}
           <hr />
+          <Link to={`movies/${movie.id}/cast`}>Cast</Link>
+          <Link to={`movies/${movie.id}/reviews`}>Reviews</Link>
+          <hr />
+          <Outlet />
         </>
+      ) : (
+        <NotFoundPage />
       )}
     </>
   );
