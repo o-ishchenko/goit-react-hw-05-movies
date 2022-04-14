@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import * as moviesSearch_API from '../services/api-movies';
+import styles from './ReviewsPage.module.css';
+import * as moviesSearch_API from '../../services/api-movies';
 
 function ReviewsPage() {
   const { movieId } = useParams();
@@ -11,7 +12,7 @@ function ReviewsPage() {
   }, [movieId]);
 
   return reviews.length ? (
-    <ul>
+    <ul className={ styles.list}>
       {reviews.map(review => (
         <li key={review.id}>
           <h3>{review.author}</h3>

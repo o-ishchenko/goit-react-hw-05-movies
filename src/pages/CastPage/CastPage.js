@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import * as moviesSearch_API from '../services/api-movies';
+import styles from './CastPage.module.css';
+import * as moviesSearch_API from '../../services/api-movies';
 
 function CastPage() {
   const { movieId } = useParams();
@@ -11,13 +12,14 @@ function CastPage() {
   }, [movieId]);
 
   return (
-    <ul>
+    <ul className={styles.list}>
       {actors.map(
         actor =>
           actor.profile_path && (
-            <li key={actor.id}>
+            <li className={styles.item} key={actor.id}>
               <img
-                src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                className={styles.image}
+                src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
                 alt={actor.name}
               />
               <h3>{actor.name}</h3>

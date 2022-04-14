@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+  list-style: none;
+  padding: 30px;
+}
+.item {
+  margin: 10px;
+  width: calc((100% - 80px) / 4);
+}
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
