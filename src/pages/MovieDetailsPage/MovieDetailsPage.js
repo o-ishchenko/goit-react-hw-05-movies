@@ -15,6 +15,7 @@ function MovieDetailsPage() {
   const { movieId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(location);
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -71,7 +72,7 @@ function MovieDetailsPage() {
           <hr />
           <NavLink
             to={`cast`}
-            state={{ from: location.state.from }}
+            state={location.state ? { from: location.state.from } : null}
             className={({ isActive }) =>
               isActive ? styles.active : styles.link
             }
@@ -80,7 +81,7 @@ function MovieDetailsPage() {
           </NavLink>
           <NavLink
             to={`reviews`}
-            state={{ from: location.state.from }}
+            state={location.state ? { from: location.state.from } : null}
             className={({ isActive }) =>
               isActive ? styles.active : styles.link
             }
